@@ -22,7 +22,8 @@ def configure_chatbot():
             "0.1",
             "0.5",
             "0.7"
-        ]
+        ],
+        default="0.7"
     ).ask()
 
     # Top-p selection
@@ -32,7 +33,8 @@ def configure_chatbot():
             "0.1",
             "0.5",
             "0.9"
-        ]
+        ],
+        default="0.9"
     ).ask()
 
     # Save the configuration to a file
