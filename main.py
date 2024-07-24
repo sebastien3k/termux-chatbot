@@ -22,7 +22,7 @@ def get_response_from_llm(message):
                 "role": "user"
             }
         ],
-        "model": "Wizard-Vicuna-7B-Uncensored.Q5_K_M",
+        "model": "mistral-7b-instruct-v0.2.Q4_K_S",# Wizard-Vicuna-7B-Uncensored.Q5_K_M
         "stream": True,
         "max_tokens": 2048,
         "stop": [
