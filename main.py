@@ -21,7 +21,7 @@ def configure_chatbot():
         choices=[
             ("0.1 - Very deterministic", "0.1"),
             ("0.5 - Balanced", "0.5"),
-            ("0.9 - Creative", "0.9")
+            ("0.7 - Creative", "0.7")
         ],
         default="0.7"
     ).ask()
