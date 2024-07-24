@@ -23,7 +23,7 @@ def configure_chatbot():
             ("0.5 - Balanced", "0.5"),
             ("0.7 - Creative", "0.7")
         ],
-        default="0.7"
+        default="0.7 - Creative"
     ).ask()
 
     # Top-p selection
@@ -34,7 +34,7 @@ def configure_chatbot():
             ("0.5 - Balanced", "0.5"),
             ("0.9 - More diverse", "0.9")
         ],
-        default="0.9"
+        default="0.9 - More diverse"
     ).ask()
 
     # Save the configuration to a file
