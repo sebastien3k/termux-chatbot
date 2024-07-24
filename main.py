@@ -1,5 +1,6 @@
 import os
 import requests
+import json
 import subprocess
 
 def get_response_from_llm(message):
