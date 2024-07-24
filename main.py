@@ -78,7 +78,7 @@ def get_response_from_llm(message, config):
                 "role": "user"
             }
         ],
-        "model": config['model']
+        "model": config['model'],
         "stream": True,
         "max_tokens": 2048,
         "stop": [
