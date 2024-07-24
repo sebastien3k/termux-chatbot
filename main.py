@@ -17,21 +17,21 @@ def configure_chatbot():
 
     # Temperature selection
     temperature = questionary.select(
-        "Select the temperature:",
+        "Select the temperature: (Lower = more deterministic)",
         choices=[
-            ("0.1 - Very deterministic", "0.1"),
-            ("0.5 - Balanced", "0.5"),
-            ("0.7 - Creative", "0.7")
+            "0.1",
+            "0.5",
+            "0.7"
         ]
     ).ask()
 
     # Top-p selection
     top_p = questionary.select(
-        "Select the top-p (nucleus sampling):",
+        "Select the top-p (nucleus sampling, lower = more focused):",
         choices=[
-            ("0.1 - Very focused", "0.1"),
-            ("0.5 - Balanced", "0.5"),
-            ("0.9 - More diverse", "0.9")
+            "0.1",
+            "0.5",
+            "0.9"
         ]
     ).ask()
 
