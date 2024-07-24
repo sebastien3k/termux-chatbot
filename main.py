@@ -1,3 +1,4 @@
+import os
 import subprocess
 
 def get_response_from_llm(message):
