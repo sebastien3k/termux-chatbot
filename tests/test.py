@@ -11,7 +11,7 @@ if not server_ip:
     exit(1)
 
 # Set up the API endpoint
-api_url = f"http://{server_ip}:1337/chat/completions"
+api_url = f"http://{server_ip}:1337/v1/chat/completions"
 
 # Initialize conversation history
 conversation = [
