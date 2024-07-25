@@ -118,7 +118,9 @@ def get_response_from_llm(message, config):
                         pass
         
             # Print the complete message
-            return complete_message.strip()
+            complete_message = complete_message.rstrip('</s>').strip()
+            # return complete_message.strip()
+            return complete_message
 
         else:
             print(f"Failed to generate response from LLM API server. Status code: {response.status_code}")
