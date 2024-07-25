@@ -14,43 +14,30 @@ if not LLM_SERVER_IP:
 # Set up the API endpoint
 API_URL = f"http://{LLM_SERVER_IP}:1337/v1/chat/completions"
 
-# Model options
-MODEL_OPTIONS = [
-    "tinyllama-1.1b",
-    "mistral-7b-instruct-v0.2.Q4_K_S",
-    # Add other models here
-]
-
-# Temperature options
-TEMPERATURE_OPTIONS = [
-    0.7,
-    0.8,
-    0.9,
-    1.0
-]
-
-# Top_p options
-TOP_P_OPTIONS = [
-    0.95,
-    0.9,
-    0.85,
-    0.8
+# Initialize conversation history
+conversation = [
+    {"role": "system", "content": "You are a helpful assistant."}
 ]
 
 def configure_chat():
     model = questionary.select(
         "Choose a model:",
-        choices=MODEL_OPTIONS
+        choices=[
+            "tinyllama-1.1b",
+            "mistral-7b-instruct-v0.2.Q4_K_S",
+            "llama-2-7b-chat.Q4_K_M",
+            "neural-chat-7b-v3-1.Q4_K_M"
+        ]
     ).ask()
 
     temperature = questionary.select(
-        "Choose a temperature:",
-        choices=[str(t) for t in TEMPERATURE_OPTIONS]
+        "Choose temperature:",
+        choices=["0.5", "0.7", "1.0"]
     ).ask()
 
     top_p = questionary.select(
-        "Choose a top_p value:",
-        choices=[str(p) for p in TOP_P_OPTIONS]
+        "Choose top_p:",
+        choices=["0.9", "0.95", "1.0"]
     ).ask()
 
     return {
@@ -90,11 +77,6 @@ def main():
     config = configure_chat()
     print(f"Using model: {config['model']}, temperature: {config['temperature']}, top_p: {config['top_p']}")
     print("Type 'exit' to end the conversation.")
-    
-    global conversation
-    conversation = [
-        {"role": "system", "content": "You are a helpful assistant."}
-    ]
     
     while True:
         user_input = input("You: ").strip()
